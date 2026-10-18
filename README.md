@@ -1,1 +1,1057 @@
-# DIMPLE-S-KITCHEN
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dimaple's Kitchen | Luxury Dining</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #d6b36a;
+  --black: #10100e;
+  --cream: #f7f1e7;
+  --muted: #b9b2a5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(16,16,14,.96);
+  border-bottom: 1px solid #413621;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 7%;
+  gap: 20px;
+}
+
+.logo {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 29px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.logo span {
+  display: block;
+  text-align: center;
+  font: 9px 'Poppins', sans-serif;
+  letter-spacing: 5px;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-size: 12px;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.gold-btn, .outline-btn {
+  padding: 12px 22px;
+  border: 1px solid var(--gold);
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.gold-btn {
+  background: var(--gold);
+  color: #17140e;
+}
+
+.gold-btn:hover {
+  background: #f0d393;
+}
+
+.outline-btn:hover {
+  background: var(--gold);
+  color: #17140e;
+}
+
+.hero {
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  padding: 90px 9%;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.88), rgba(0,0,0,.48), rgba(0,0,0,.12)),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=90')
+    center/cover;
+}
+
+.hero-content {
+  max-width: 690px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(50px, 7vw, 90px);
+  line-height: .98;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero p {
+  max-width: 480px;
+  color: #ddd6ca;
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+section {
+  padding: 85px 7%;
+  scroll-margin-top: 78px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading h2 {
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.gold-line {
+  width: 65px;
+  height: 2px;
+  background: var(--gold);
+  margin: 17px auto;
+}
+
+.about {
+  background: #181713;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.about-image {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+}
+
+.about-copy h2 {
+  font-size: 49px;
+  line-height: 1.05;
+  margin: 14px 0 22px;
+}
+
+.about-copy p {
+  font-size: 13px;
+  line-height: 2.1;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.features {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.feature strong {
+  display: block;
+  color: var(--gold);
+  font: 26px 'Cormorant Garamond', serif;
+}
+
+.feature span {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* MENU */
+
+.menu-section {
+  background: var(--black);
+}
+
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 38px;
+}
+
+.menu-tab {
+  background: transparent;
+  color: #e6dfd3;
+  border: 1px solid #494238;
+  padding: 11px 19px;
+  font-size: 12px;
+  transition: .25s;
+}
+
+.menu-tab:hover, .menu-tab.active {
+  background: var(--gold);
+  color: #17140e;
+  border-color: var(--gold);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.food-card {
+  background: #1b1a16;
+  border: 1px solid #332e24;
+  overflow: hidden;
+  transition: transform .3s, border-color .3s;
+}
+
+.food-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.food-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.food-info {
+  padding: 22px;
+}
+
+.food-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.food-info h3 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.price {
+  color: var(--gold);
+  font-size: 14px;
+  white-space: nowrap;
+  padding-top: 5px;
+}
+
+.food-info p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.9;
+  margin: 12px 0 18px;
+}
+
+.order-btn {
+  border: 1px solid #6c5a36;
+  background: transparent;
+  color: var(--gold);
+  padding: 9px 15px;
+  font-size: 11px;
+}
+
+.order-btn:hover {
+  background: var(--gold);
+  color: #17140e;
+}
+
+/* EXPERIENCE */
+
+.experience {
+  text-align: center;
+  background:
+    linear-gradient(rgba(0,0,0,.76), rgba(0,0,0,.78)),
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85')
+    center/cover fixed;
+}
+
+.experience h2 {
+  font-size: clamp(38px, 5vw, 62px);
+  margin: 12px 0 20px;
+}
+
+.experience p {
+  color: #ddd5c8;
+  max-width: 620px;
+  margin: 0 auto 28px;
+  line-height: 2;
+  font-size: 13px;
+}
+
+/* FORMS */
+
+.form-section {
+  background: #181713;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.form-card {
+  padding: 35px;
+  background: #211f19;
+  border: 1px solid #443a29;
+}
+
+.form-card h3 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.form-card > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.form-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  color: #d8c9a9;
+  font-size: 11px;
+}
+
+.field input, .field select, .field textarea {
+  width: 100%;
+  background: #14130f;
+  color: white;
+  border: 1px solid #494033;
+  padding: 13px;
+  outline: none;
+  border-radius: 0;
+}
+
+.field input:focus, .field select:focus,
+.field textarea:focus {
+  border-color: var(--gold);
+}
+
+.field textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+.form-card .gold-btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.message {
+  font-size: 12px;
+  color: var(--gold);
+  margin-top: 15px;
+  line-height: 1.8;
+}
+
+.contact {
+  text-align: center;
+  background: #11110f;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 950px;
+  margin: 35px auto 0;
+}
+
+.contact-item {
+  padding: 25px 15px;
+  border: 1px solid #393126;
+}
+
+.contact-item h3 {
+  color: var(--gold);
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.contact-item p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  padding: 30px 7%;
+  border-top: 1px solid #393126;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 2;
+}
+
+footer strong {
+  color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    height: 350px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  section {
+    padding: 60px 5%;
+  }
+
+  .hero {
+    min-height: 580px;
+    padding: 70px 6%;
+  }
+
+  .hero h1 {
+    font-size: 53px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .menu-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 22px;
+  }
+
+  .form-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  .food-card img {
+    height: 245px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="navbar">
+  <a href="#home" class="logo">
+    Dimaple's Kitchen
+    <span>FINE DINING</span>
+  </a>
+
+  <nav class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">Our Story</a>
+    <a href="#menu">Menu</a>
+    <a href="#reservation">Reservations</a>
+    <a href="#contact">Contact</a>
+    <a href="#registration" class="gold-btn">Register</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">An Extraordinary Dining Experience</div>
+
+    <h1>Where Taste<br>Meets <span>Luxury.</span></h1>
+
+    <p>
+      Discover exceptional flavours, exquisite presentation
+      and warm hospitality at Dimaple's Kitchen.
+      Every dish tells a story. Every visit becomes a memory.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#menu" class="gold-btn">EXPLORE OUR MENU</a>
+      <a href="#reservation" class="outline-btn">BOOK A TABLE</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <img
+      class="about-image"
+      src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=1000&q=85"
+      alt="Beautifully presented gourmet cuisine"
+      loading="lazy"
+    >
+
+    <div class="about-copy">
+      <div class="eyebrow">Our Culinary Philosophy</div>
+      <h2>A World of Flavour.<br>A Touch of Elegance.</h2>
+
+      <p>
+        Welcome to Dimaple's Kitchen, where culinary creativity
+        meets timeless sophistication. Our menu celebrates
+        the richness of Indian traditions alongside flavours
+        inspired by kitchens around the world.
+      </p>
+
+      <p>
+        From carefully selected ingredients to beautiful
+        plating, we believe that fine dining should delight
+        every sense.
+      </p>
+
+      <a href="#menu" class="outline-btn">DISCOVER OUR CUISINE</a>
+
+      <div class="features">
+        <div class="feature">
+          <strong>5★</strong>
+          <span>INSPIRED AMBIENCE</span>
+        </div>
+        <div class="feature">
+          <strong>5</strong>
+          <span>CUISINE COLLECTIONS</span>
+        </div>
+        <div class="feature">
+          <strong>100%</strong>
+          <span>FLAVOUR FOCUSED</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="section-heading">
+    <div class="eyebrow">Curated for Your Pleasure</div>
+    <h2>Our Signature Menu</h2>
+    <div class="gold-line"></div>
+    <p>
+      Explore a world of culinary delights.<br>
+      Select a cuisine to discover your next favourite dish.
+    </p>
+  </div>
+
+  <div class="menu-tabs" aria-label="Filter menu by cuisine">
+    <button class="menu-tab active" data-cuisine="All">All Menus</button>
+    <button class="menu-tab" data-cuisine="Indian">Indian</button>
+    <button class="menu-tab" data-cuisine="Chinese">Chinese</button>
+    <button class="menu-tab" data-cuisine="Italian">Italian</button>
+    <button class="menu-tab" data-cuisine="Continental">Continental</button>
+    <button class="menu-tab" data-cuisine="Desserts">Desserts</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- DINING EXPERIENCE -->
+<section class="experience">
+  <div class="eyebrow">Beyond the Ordinary</div>
+  <h2>Make Every Occasion Special</h2>
+  <p>
+    Celebrate anniversaries, intimate dinners, family gatherings
+    and unforgettable evenings with an elegant dining experience
+    designed around you.
+  </p>
+  <a href="#reservation" class="gold-btn">RESERVE YOUR EXPERIENCE</a>
+</section>
+
+<!-- REGISTRATION + RESERVATION -->
+<section class="form-section">
+  <div class="section-heading">
+    <div class="eyebrow">Your Table Awaits</div>
+    <h2>Join Our Dining Family</h2>
+    <div class="gold-line"></div>
+    <p>Register for updates or request your next dining experience.</p>
+  </div>
+
+  <div class="form-grid">
+
+    <!-- CUSTOMER REGISTRATION -->
+    <div class="form-card" id="registration">
+      <h3>Guest Registration</h3>
+      <p>Create your guest profile to receive restaurant news
+         and special offers.</p>
+
+      <form id="registerForm">
+        <div class="form-fields">
+          <div class="field full">
+            <label for="regName">Full Name</label>
+            <input id="regName" name="name" type="text"
+                   placeholder="Enter your full name" required>
+          </div>
+
+          <div class="field">
+            <label for="regEmail">Email Address</label>
+            <input id="regEmail" name="email" type="email"
+                   placeholder="you@example.com" required>
+          </div>
+
+          <div class="field">
+            <label for="regPhone">Mobile Number</label>
+            <input id="regPhone" name="phone" type="tel"
+                   placeholder="Your phone number"
+                   pattern="[0-9+\s()-]{7,20}" required>
+          </div>
+
+          <div class="field full">
+            <label for="regOccasion">Favourite Dining Experience</label>
+            <select id="regOccasion" name="preference">
+              <option value="Fine dining">Fine dining</option>
+              <option value="Family dining">Family dining</option>
+              <option value="Romantic dinner">Romantic dinner</option>
+              <option value="Celebrations">Celebrations</option>
+              <option value="Business dining">Business dining</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="gold-btn" type="submit">
+          REGISTER AS A GUEST
+        </button>
+
+        <p class="message" id="registerMessage" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <!-- TABLE RESERVATION -->
+    <div class="form-card" id="reservation">
+      <h3>Reserve a Table</h3>
+      <p>Tell us your preferred date and time. Our team can
+         confirm your reservation once the form is connected.</p>
+
+      <form id="bookingForm">
+        <div class="form-fields">
+          <div class="field full">
+            <label for="bookName">Guest Name</label>
+            <input id="bookName" name="name" type="text"
+                   placeholder="Your name" required>
+          </div>
+
+          <div class="field">
+            <label for="bookDate">Preferred Date</label>
+            <input id="bookDate" name="date" type="date" required>
+          </div>
+
+          <div class="field">
+            <label for="bookTime">Preferred Time</label>
+            <select id="bookTime" name="time" required>
+              <option value="">Select a time</option>
+              <option>12:00 PM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>6:00 PM</option>
+              <option>7:00 PM</option>
+              <option>8:00 PM</option>
+              <option>9:00 PM</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="bookGuests">Number of Guests</label>
+            <select id="bookGuests" name="guests" required>
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6 Guests</option>
+              <option value="7">7 Guests</option>
+              <option value="8">8 Guests</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="bookPhone">Contact Number</label>
+            <input id="bookPhone" name="phone" type="tel"
+                   placeholder="Your phone number" required>
+          </div>
+
+          <div class="field full">
+            <label for="bookNotes">Special Requests</label>
+            <textarea id="bookNotes" name="notes"
+                      placeholder="Dietary preferences or special occasion"></textarea>
+          </div>
+        </div>
+
+        <button class="gold-btn" type="submit">
+          REQUEST A RESERVATION
+        </button>
+
+        <p class="message" id="bookingMessage" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="eyebrow">We Look Forward to Welcoming You</div>
+  <h2 style="font-size:48px;">Visit Dimaple's Kitchen</h2>
+  <div class="gold-line"></div>
+
+  <div class="contact-grid">
+    <div class="contact-item">
+      <h3>Location</h3>
+      <p>Add your restaurant's full address here.</p>
+    </div>
+
+    <div class="contact-item">
+      <h3>Opening Hours</h3>
+      <p>Lunch: 12 PM – 3 PM<br>Dinner: 6 PM – 10 PM</p>
+    </div>
+
+    <div class="contact-item">
+      <h3>Contact</h3>
+      <p>Add your business phone number and email here.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Dimaple's Kitchen</strong> | Fine Dining & Exceptional Flavours</p>
+  <p>© <span id="year"></span> Dimaple's Kitchen. All rights reserved.</p>
+</footer>
+
+<script>
+const dishes = [
+  {
+    name: "Royal Butter Chicken",
+    cuisine: "Indian",
+    price: 449,
+    desc: "Creamy tomato gravy, aromatic spices and tender chicken.",
+    image: "photo-1603894584373-5ac82b2ae398"
+  },
+  {
+    name: "Paneer Lababdar",
+    cuisine: "Indian",
+    price: 349,
+    desc: "Soft paneer in a rich, slow-cooked North Indian gravy.",
+    image: "photo-1631452180519-c014fe946bc7"
+  },
+  {
+    name: "Hyderabadi Biryani",
+    cuisine: "Indian",
+    price: 399,
+    desc: "Fragrant basmati rice layered with traditional spices.",
+    image: "photo-1563379091339-03246963d51a"
+  },
+  {
+    name: "Schezwan Noodles",
+    cuisine: "Chinese",
+    price: 279,
+    desc: "Wok-tossed noodles with vegetables and fiery Schezwan sauce.",
+    image: "photo-1585032226651-759b368d7246"
+  },
+  {
+    name: "Vegetable Manchurian",
+    cuisine: "Chinese",
+    price: 249,
+    desc: "Crispy vegetable bites coated in a savoury Asian sauce.",
+    image: "photo-1512058564366-18510be2db19"
+  },
+  {
+    name: "Chilli Garlic Fried Rice",
+    cuisine: "Chinese",
+    price: 259,
+    desc: "Fragrant rice with garlic, spring onions and Asian seasoning.",
+    image: "photo-1603133872878-684f208fb84b"
+  },
+  {
+    name: "Classic Margherita",
+    cuisine: "Italian",
+    price: 329,
+    desc: "Tomato, mozzarella, basil and a crisp artisan crust.",
+    image: "photo-1579751626657-72bc17010498"
+  },
+  {
+    name: "Creamy Alfredo Pasta",
+    cuisine: "Italian",
+    price: 369,
+    desc: "Silky parmesan cream sauce with perfectly cooked pasta.",
+    image: "photo-1473093295043-cdd812d0e601"
+  },
+  {
+    name: "Wild Mushroom Risotto",
+    cuisine: "Italian",
+    price: 429,
+    desc: "Creamy Arborio rice with mushrooms and parmesan.",
+    image: "photo-1476124369491-e7addf5db371"
+  },
+  {
+    name: "Grilled Herb Chicken",
+    cuisine: "Continental",
+    price: 499,
+    desc: "Herb-marinated chicken with seasonal vegetables.",
+    image: "photo-1532550907401-a500c9a57435"
+  },
+  {
+    name: "Classic Club Sandwich",
+    cuisine: "Continental",
+    price: 299,
+    desc: "Toasted layers with fresh vegetables and signature dressing.",
+    image: "photo-1528735602780-2552fd46c7af"
+  },
+  {
+    name: "Grilled Veg Platter",
+    cuisine: "Continental",
+    price: 349,
+    desc: "Seasonal grilled vegetables with a delicate herb dressing.",
+    image: "photo-1540420773420-3366772f4999"
+  },
+  {
+    name: "Chocolate Lava Cake",
+    cuisine: "Desserts",
+    price: 229,
+    desc: "Warm chocolate cake with a rich molten centre.",
+    image: "photo-1606313564200-e75d5e30476c"
+  },
+  {
+    name: "New York Cheesecake",
+    cuisine: "Desserts",
+    price: 249,
+    desc: "Velvety cheesecake with a buttery biscuit base.",
+    image: "photo-1533134242443-d4fd215305ad"
+  },
+  {
+    name: "Classic Tiramisu",
+    cuisine: "Desserts",
+    price: 269,
+    desc: "Coffee-soaked layers with mascarpone and cocoa.",
+    image: "photo-1571877227200-a0d98ea607e9"
+  }
+];
+
+const grid = document.getElementById("menuGrid");
+
+function renderMenu(cuisine) {
+  const filtered = cuisine === "All"
+    ? dishes
+    : dishes.filter(dish => dish.cuisine === cuisine);
+
+  grid.innerHTML = filtered.map(dish => `
+    <article class="food-card">
+      <img
+        src="https://images.unsplash.com/${dish.image}?auto=format&fit=crop&w=750&q=80"
+        alt="${dish.name}"
+        loading="lazy"
+      >
+      <div class="food-info">
+        <div class="food-top">
+          <h3>${dish.name}</h3>
+          <span class="price">₹${dish.price}</span>
+        </div>
+        <p>${dish.desc}</p>
+        <button class="order-btn"
+          data-dish="${dish.name}">
+          ENQUIRE ABOUT DISH
+        </button>
+      </div>
+    </article>
+  `).join("");
+}
+
+document.querySelectorAll(".menu-tab").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".menu-tab").forEach(tab =>
+      tab.classList.remove("active")
+    );
+
+    button.classList.add("active");
+    renderMenu(button.dataset.cuisine);
+  });
+});
+
+grid.addEventListener("click", event => {
+  const button = event.target.closest("[data-dish]");
+  if (!button) return;
+
+  const dish = button.dataset.dish;
+  document.getElementById("bookNotes").value =
+    "Interested in: " + dish;
+
+  document.getElementById("reservation").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+/* Prevent past dates in the reservation form */
+const dateInput = document.getElementById("bookDate");
+const today = new Date();
+const localToday = [
+  today.getFullYear(),
+  String(today.getMonth() + 1).padStart(2, "0"),
+  String(today.getDate()).padStart(2, "0")
+].join("-");
+
+dateInput.min = localToday;
+
+/*
+  DEMO FORMS ONLY:
+  These handlers validate input in the browser.
+  They do not save data to a database or send a booking.
+  Connect a backend before accepting real customer details.
+*/
+
+document.getElementById("registerForm").addEventListener(
+  "submit", event => {
+    event.preventDefault();
+
+    document.getElementById("registerMessage").textContent =
+      "Demo only: registration form validated. Connect a secure backend to save your guest profile.";
+
+    event.target.reset();
+  }
+);
+
+document.getElementById("bookingForm").addEventListener(
+  "submit", event => {
+    event.preventDefault();
+
+    document.getElementById("bookingMessage").textContent =
+      "Demo only: reservation request validated. Your table is not yet booked. Connect a backend to receive and confirm reservations.";
+  }
+);
+
+renderMenu("All");
+</script>
+
+</body>
+</html>
